@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Practicas } from './Practicas';
 import './Estilos/FormularioPracticas.css'
 import './Funcionalidad/FuncionalidadFront.js';
-import 'bootstrap/dist/css/bootstrap-css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 
