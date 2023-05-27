@@ -51,4 +51,16 @@
     background-color: #ffffff;
     cursor: not-allowed;
   }
+  input:valid:focus {
+    outline-color: green; /* Establece un color de contorno verde cuando el campo válido está en foco */
+  }
+  input:invalid:focus{
+    outline-color: red;
+  }
+
+
+ 
+
+
+  
   

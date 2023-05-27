@@ -1,5 +1,8 @@
-import { useState } from "react";
-export const FormularioPracticas = ({ practicas, setPracticas }) => {
+
+import { Link } from 'react-router-dom'
+import { useState } from "react"
+export const FormularioPracticas=({practicas, setPracticas})=>{
+
   //useState para Empresa
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [sitioWebEmpresa, setSitioWebEmpresa] = useState("");
@@ -19,21 +22,6 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
   const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("");
 
   const guardarPractica = (event) => {
-    if (nombreEmpresa === "") {
-      return alert("INGRESE UN VALOR EN NOMBRE");
-    }
-    if (sitioWebEmpresa === "") {
-      return alert("INGRESE UN VALOR EN SITIOWEB");
-    }
-    if (direccionEmpresa === "") {
-      return alert("INGRESE UN VALOR EN DIRECCION");
-    }
-    if (numeroTelefonicoEmpresa === "") {
-      return alert("INGRESE UN VALOR EN NUMERO");
-    }
-    if (correoElectronicoEmpresa === "") {
-      return alert("INGRESE UN VALOR EN CORREOELECTRONICO");
-    }
     if (nombreCompletoSupervisor === "") {
       return alert("INGRESE UN VALOR EN EL NOMBRE DEL SUPERVISOR");
     }
@@ -75,22 +63,31 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
   };
   const [seccion, setSeccion] = useState(1);
   const avanzarSeccion = (event) => {
-    event.preventDefault();
-    setSeccion((prevSeccion) => prevSeccion + 1);
+    if (seccion === 1) {
+        if (seccion === 1) {
+            const form = event.target.form;
+            const esValid = form.checkValidity();
+            if (!esValid) {
+              form.reportValidity();
+            } else {
+              setSeccion((prevSeccion) => prevSeccion + 1);
+            }
+          }
+    }
+
   };
   const retrocederSeccion = (event) => {
     event.preventDefault();
     setSeccion((prevSeccion) => prevSeccion - 1);
   };
   
-  const renderSeccion = () => {
+  const renderSecciones = () => {
     switch (seccion) {
       case 1:
         return (
           <div className="seccion">
             <h2>Información de la Empresa</h2>
             {
-              /* Campos para la información de la empresa */
               <div className="campo">
                 <label htmlFor="nombreEmpresa">Nombre de la empresa:</label>
                 <input
@@ -98,6 +95,8 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
                   id="nombreEmpresa"
                   value={nombreEmpresa}
                   onChange={(e) => setNombreEmpresa(e.target.value)}
+                  placeholder="Nombre de la empresa"
+                  required
                 />
               </div>
             }
@@ -107,47 +106,64 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
                   Sitio web de la empresa:
                 </label>
                 <input
-                  type="text"
+                  type="url"
                   id="sitioWebEmpresa"
                   value={sitioWebEmpresa}
                   onChange={(e) => setSitioWebEmpresa(e.target.value)}
+                  placeholder="Sitio web de la empresa"
+                  required
                 />
               </div>
             }
-            {<div className="campo">
-            <label htmlFor="direccionEmpresa">Dirección de la empresa:</label>
-            <input
-              type="text"
-              id="direccionEmpresa"
-              value={direccionEmpresa}
-              onChange={(e) => setDireccionEmpresa(e.target.value)}
-            />
-          </div>}
-          {
-            <div className="campo">
-            <label htmlFor="numeroTelefonicoEmpresa">Numero telefonico de la empresa:</label>
-            <input
-              type="text"
-              id="numeroTelefonicoEmpresa"
-              value={numeroTelefonicoEmpresa}
-              onChange={(e) => setNumeroTelefonicoEmpresa(e.target.value)}
-            />
-          </div>
-          }
-          {
-            <div className="campo">
-            <label htmlFor="correoElectronicoEmpresa">Correo electronico de la empresa:</label>
-            <input
-              type="text"
-              id="correoElectronicoEmpresa"
-              value={correoElectronicoEmpresa}
-              onChange={(e) => setCorreoElectronicoEmpresa(e.target.value)}
-            />
-          </div>
-          }
+            {
+              <div className="campo">
+                <label htmlFor="direccionEmpresa">
+                  Dirección de la empresa:
+                </label>
+                <input
+                  type="text"
+                  id="direccionEmpresa"
+                  value={direccionEmpresa}
+                  onChange={(e) => setDireccionEmpresa(e.target.value)}
+                  required
+                />
+              </div>
+            }
+            {
+              <div className="campo">
+                <label htmlFor="numeroTelefonicoEmpresa">
+                  Numero telefonico de la empresa:
+                </label>
+                <input
+                  type="tel"
+                  id="numeroTelefonicoEmpresa"
+                  value={numeroTelefonicoEmpresa}
+                  onChange={(e) => setNumeroTelefonicoEmpresa(e.target.value)}
+                  placeholder="123-4567890, Numero telefonico de la empresa sin prefijo "
+                  pattern="[0-9]{3}-[0-9]{7}"
+                  max={11}
+                  maxLength={12}
+                  required
+                />
+              </div>
+            }
+            {
+              <div className="campo">
+                <label htmlFor="correoElectronicoEmpresa">
+                  Correo electronico de la empresa:
+                </label>
+                <input
+                  type="text"
+                  id="correoElectronicoEmpresa"
+                  value={correoElectronicoEmpresa}
+                  onChange={(e) => setCorreoElectronicoEmpresa(e.target.value)}
+                  placeholder="Correo electronico de la empresa"
+                  required
+                />
+              </div>
+            }
             <button onClick={avanzarSeccion}>Siguiente</button>
           </div>
-          
         );
       case 2:
         return (
@@ -271,5 +287,11 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
         return null;
     }
   };
-  return <form className="formulario">{renderSeccion()}</form>;
+return (
+        <>
+     <form className="formulario">{renderSecciones()}</form>;
+        <Link to="/"><button>Volver</button></Link>
+        </>
+    )
 };
+
