@@ -103,6 +103,8 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
                   id="direccionEmpresa"
                   value={direccionEmpresa}
                   onChange={(e) => setDireccionEmpresa(e.target.value)}
+                  placeholder="bogotá,carrera 11 #8-20 "
+                  pattern= "A-Za-záéíóúÁÉÍÓÚ\s]\d+(\s\d+)*\s[A-Za-záéíóúÁÉÍÓÚ\s]+$/"
                   required
                 />
               </div>
