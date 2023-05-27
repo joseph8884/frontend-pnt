@@ -78,6 +78,11 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
     event.preventDefault();
     setSeccion((prevSeccion) => prevSeccion + 1);
   };
+  const retrocederSeccion = (event) => {
+    event.preventDefault();
+    setSeccion((prevSeccion) => prevSeccion - 1);
+  };
+  
   const renderSeccion = () => {
     switch (seccion) {
       case 1:
@@ -181,7 +186,9 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
                />
              </div>
             }
-            <button onClick={avanzarSeccion}>Siguiente</button>
+            <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
+            <button  onClick={avanzarSeccion}>Siguiente</button>
+            
           </div>
         );
       case 3:
@@ -253,8 +260,11 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
               </select>
               </div>
             }
+            <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
+            <button onClick={guardarPractica}>Guardar</button> 
 
-            <button onClick={guardarPractica}>Guardar</button>
+
+           
           </div>
         );
       default:
