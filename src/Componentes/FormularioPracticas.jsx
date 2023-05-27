@@ -61,7 +61,6 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
       direccionEmpresa: direccionEmpresa,
       numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
       correoElectronicoEmpresa: correoElectronicoEmpresa,
-      descripcionEmpresa: descripcionEmpresa,
 
       nombreCompletoSupervisor: nombreCompletoSupervisor,
       cargoSupervisor: cargoSupervisor,
