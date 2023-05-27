@@ -78,20 +78,16 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
             fechaRealizacionTarea:fechaRealizacionTarea,
             horasDedicadaTarea:horasDedicadaTarea,
         }
-        
+        setPracticas(practica)
     }
 
-    const Formulario=()=>{
-        return(
-
-export const FormularioPracticas = () => {
-const estiloboton={
-    margin_bottom:'18px',
-}
-const estiloaltura={
-    height:'108px',
-}
     const Formulario = () => {
+        const estiloboton={
+            margin_bottom:'18px',
+        }
+        const estiloaltura={
+            height:'108px',
+        }
         return (
             <>
             <div class="wrapper">
