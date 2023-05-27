@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom'
 export const MostrarPracticas = ()=>{
     return(
-        <h1>hi</h1>
+        <>
+            <Link to="/"><button onClick={()=> window.close()}>Volver</button></Link>
+        </>
     )
 }

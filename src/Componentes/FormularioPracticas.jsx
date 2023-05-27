@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 import { useState } from "react"
 export const FormularioPracticas=({practicas, setPracticas})=>{
 
@@ -115,7 +115,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
     return (
         <>
         {Formulario()}
-
+        <Link to="/"><button>Volver</button></Link>
         </>
     )
 }
