@@ -1,5 +1,8 @@
-import { useState } from "react";
-export const FormularioPracticas = ({ practicas, setPracticas }) => {
+
+import { Link } from 'react-router-dom'
+import { useState } from "react"
+export const FormularioPracticas=({practicas, setPracticas})=>{
+
   //useState para Empresa
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [sitioWebEmpresa, setSitioWebEmpresa] = useState("");
@@ -71,6 +74,7 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
             }
           }
     }
+
   };
   const renderSecciones = () => {
     switch (seccion) {
@@ -273,5 +277,11 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
         return null;
     }
   };
-  return <form className="formulario">{renderSecciones()}</form>;
+return (
+        <>
+     <form className="formulario">{renderSecciones()}</form>;
+        <Link to="/"><button>Volver</button></Link>
+        </>
+    )
 };
+
