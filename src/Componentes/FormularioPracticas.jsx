@@ -22,27 +22,6 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
   const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("");
 
   const guardarPractica = (event) => {
-    if (nombreCompletoSupervisor === "") {
-      return alert("INGRESE UN VALOR EN EL NOMBRE DEL SUPERVISOR");
-    }
-    if (cargoSupervisor === "") {
-      return alert("INGRESE UN VALOR EN CARGO SUPERVISOR");
-    }
-    if (telefonoSupervisor === "") {
-      return alert("INGRESE UN VALOR EN TELEFONO SUPERVISOR");
-    }
-    if (descripcionTarea === "") {
-      return alert("INGRESE UN VALOR EN DESCRIPCION TAREA");
-    }
-    if (importanciaTarea === "") {
-      return alert("INGRESE UN VALOR EN IMPORTANCIA TAREA");
-    }
-    if (fechaRealizacionTarea === "") {
-      return alert("INGRESE UN VALOR EN FECHA REALIZACION TAREA");
-    }
-    if (horasDedicadaTarea === "") {
-      return alert("INGRESE UN VALOR EN HORAS DEDICADA A TAREA");
-    }
     let practica = {
       nombreEmpresa: nombreEmpresa,
       sitioWebEmpresa: sitioWebEmpresa,
@@ -62,20 +41,20 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
     setPracticas(practica);
   };
   const [seccion, setSeccion] = useState(1);
-  const avanzarSeccion = (event) => {
-    if (seccion === 1) {
-        if (seccion === 1) {
-            const form = event.target.form;
-            const esValid = form.checkValidity();
-            if (!esValid) {
-              form.reportValidity();
-            } else {
-              setSeccion((prevSeccion) => prevSeccion + 1);
-            }
-          }
-    }
-
-  };
+    const avanzarSeccion = (event) => {
+        event.preventDefault();
+      
+        const form = event.target.form;
+        const isValid = form.checkValidity();
+      
+        if (!isValid) {
+          form.reportValidity();
+        } else {
+          setSeccion((prevSeccion) => prevSeccion + 1);
+        }
+      };
+      
+  
   const renderSecciones = () => {
     switch (seccion) {
       case 1:
@@ -172,6 +151,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
               id="nombreCompletoSupervisor"
               value={nombreCompletoSupervisor}
               onChange={(e) => setNombreCompletoSupervisor(e.target.value)}
+              required
             />
           </div>
             }
@@ -183,6 +163,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
                 id="cargoSupervisor"
                 value={cargoSupervisor}
                 onChange={(e) => setcargoSupervisor(e.target.value)}
+                required
               />
             </div>
             }
@@ -190,10 +171,15 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
                <div className="campo">
                <label htmlFor="telefonoSupervisor">Telefono del supervisor:</label>
                <input
-                 type="text"
+                 type="tel"
                  id="telefonoSupervisor"
                  value={telefonoSupervisor}
                  onChange={(e) => setTelefonoSupervisor(e.target.value)}
+                 placeholder="1234567890, Numero telefonico del supervisor "
+                  pattern="[0-9]{3}[0-9]{7}"
+                  max={11}
+                  maxLength={11}
+                  required
                />
              </div>
             }
@@ -212,6 +198,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
                id="descripcionTarea"
                value={descripcionTarea}
                onChange={(e) => setDescripcionTarea(e.target.value)}
+               required
              />
               </div>
             }
@@ -226,6 +213,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
                 id="importanciaTarea"
                 value={importanciaTarea}
                 onChange={(event) => setImportanciaTarea(event.target.value)}
+                required
               >
                 <option>Baja</option>
                 <option>Media</option>
@@ -242,6 +230,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
                   id="fechaRealizacionTarea"
                   value={fechaRealizacionTarea}
                   onChange={(e) => setFechaRealizacionTarea(e.target.value)}   
+                  required
                   />
                 </label>
               </form>
@@ -258,6 +247,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
                 id="horasDedicadaTarea"
                 value={horasDedicadaTarea}
                 onChange={(event) => sethorasDedicadaTarea(event.target.value)}
+                required
               >
                 <option>1hr</option>
                 <option>2hr</option>
