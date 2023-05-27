@@ -131,7 +131,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
                   Correo electronico de la empresa:
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   id="correoElectronicoEmpresa"
                   value={correoElectronicoEmpresa}
                   onChange={(e) => setCorreoElectronicoEmpresa(e.target.value)}
@@ -267,9 +267,6 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
             }
             <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
             <Link to="/"  ><button onClick={guardarPractica}>Guardar</button> </Link>
-
-
-           
           </div>
         );
       default:
@@ -278,8 +275,8 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
   };
 return (
         <>
-     <form className="formulario">{renderSecciones()}</form>;
-        <Link to="/"><button>Volver</button></Link>
+     <form className="formulario">{renderSecciones()}</form>
+        <Link to="/"><button>Volver al menu principal</button></Link>
         </>
     )
 };
