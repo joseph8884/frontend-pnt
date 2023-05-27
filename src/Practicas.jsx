@@ -1,6 +1,9 @@
 
 import { useState } from "react"
 import { FormularioPracticas } from "./Componentes/FormularioPracticas"
+import { MostrarPracticas } from "./Componentes/MostrarPracticas";
+
+
 
 export const Practicas=()=>{
          //useState Practicas
