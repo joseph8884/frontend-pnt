@@ -9,7 +9,7 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
 
   //useState para Supervisor
   const [nombreCompletoSupervisor, setNombreCompletoSupervisor] = useState("");
-  const [cargoSupervisor, setNombreSupervisor] = useState("");
+  const [cargoSupervisor, setcargoSupervisor] = useState("");
   const [telefonoSupervisor, setTelefonoSupervisor] = useState("");
 
   //useState Tareas
@@ -148,7 +148,39 @@ export const FormularioPracticas = ({ practicas, setPracticas }) => {
         return (
           <div className="seccion">
             <h2>Información del Supervisor</h2>
-            {/* Campos para la información del supervisor */}
+            {/* Campos para la información del supervisor */
+            <div className="campo">
+            <label htmlFor="nombreCompletoSupervisor">Nombre del supervisor:</label>
+            <input
+              type="text"
+              id="nombreCompletoSupervisor"
+              value={nombreCompletoSupervisor}
+              onChange={(e) => setNombreCompletoSupervisor(e.target.value)}
+            />
+          </div>
+            }
+            {
+              <div className="campo">
+              <label htmlFor="cargoSupervisor">Cargo del supervisor:</label>
+              <input
+                type="text"
+                id="cargoSupervisor"
+                value={cargoSupervisor}
+                onChange={(e) => setcargoSupervisor(e.target.value)}
+              />
+            </div>
+            }
+            {
+               <div className="campo">
+               <label htmlFor="telefonoSupervisor">Telefono del supervisor:</label>
+               <input
+                 type="text"
+                 id="telefonoSupervisor"
+                 value={telefonoSupervisor}
+                 onChange={(e) => setTelefonoSupervisor(e.target.value)}
+               />
+             </div>
+            }
             <button onClick={avanzarSeccion}>Siguiente</button>
           </div>
         );
