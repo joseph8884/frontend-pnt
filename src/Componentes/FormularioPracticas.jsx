@@ -266,7 +266,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
               </div>
             }
             <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
-            <button onClick={guardarPractica}>Guardar</button> 
+            <Link to="/"  ><button onClick={guardarPractica}>Guardar</button> </Link>
 
 
            
