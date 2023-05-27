@@ -32,13 +32,23 @@
     border-radius: 3px;
     cursor: pointer;
   }
+
+  .retrocederboton{
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    
+  }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #9aaee7;
   }
   
   button:disabled {
-    background-color: #ccc;
+    background-color: #ffffff;
     cursor: not-allowed;
   }
   input:valid:focus {
