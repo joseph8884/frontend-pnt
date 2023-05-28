@@ -1,9 +1,26 @@
 import { Link } from "react-router-dom";
-export const MostrarPracticas = ({
-  buscar,
-  setBuscar,
-  FiltroListaPracticas,
-}) => {
+import { getPracticas } from "../Peticiones/getPracticas";
+import { useEffect, useState } from "react";
+export const MostrarPracticas = () => {
+  const [buscar,setBuscar]=useState("");
+  const [practicas,setPracticas]=useState([]);
+  const cargarPracticas=async()=>{
+    const datos=await getPracticas();
+    setPracticas(datos)
+  }
+  useEffect(()=>{
+    cargarPracticas()
+  },[])
+
+  const FiltroListaPracticas= practicas.filter((practica)=> 
+      practica.fechaRealizacionTarea.toLowerCase().includes(buscar.toLowerCase()));
+
+
+
+
+
+
+
   const Buscador = () => {
     return (
       <div className="Busqueda">
@@ -18,6 +35,7 @@ export const MostrarPracticas = ({
       </div>
     );
   };
+
   return (
     <>
       {Buscador()}

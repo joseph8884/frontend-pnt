@@ -6,56 +6,8 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { MenuPrincipal } from "./Componentes/MenuPrincipal";
 export const Practicas=()=>{
          //useState Practicas
-        const [practicas, setPracticas]=useState([{
-            nombreEmpresa: "asdas",
-            sitioWebEmpresa: "sitioWebEmpresa",
-            direccionEmpresa: "direccionEmpresa",
-            numeroTelefonicoEmpresa: 312,
-            correoElectronicoEmpresa: "correoElectronicoEmpresa",
+        const [practicas, setPracticas]=useState([])
 
-            nombreCompletoSupervisor: "nombreCompletoSupervisor",
-            cargoSupervisor: "cargoSupervisor",
-            telefonoSupervisor:33213,
-
-            descripcionTarea: "descripcionTarea",
-            importanciaTarea: "importanciaTarea",
-            fechaRealizacionTarea: "fechaRealizacionTarea1",
-            horasDedicadaTarea: 312,
-        },
-        {
-            nombreEmpresa: "asdas",
-            sitioWebEmpresa: "sitioWebEmpresa",
-            direccionEmpresa: "direccionEmpresa",
-            numeroTelefonicoEmpresa: 312,
-            correoElectronicoEmpresa: "correoElectronicoEmpresa",
-
-            nombreCompletoSupervisor: "nombreCompletoSupervisor",
-            cargoSupervisor: "cargoSupervisor",
-            telefonoSupervisor:33213,
-
-            descripcionTarea: "descripcionTarea",
-            importanciaTarea: "importanciaTarea",
-            fechaRealizacionTarea: "fechaRealizacionTarea2",
-            horasDedicadaTarea: 312,
-        },
-        {
-            nombreEmpresa: "asdas",
-            sitioWebEmpresa: "sitioWebEmpresa",
-            direccionEmpresa: "direccionEmpresa",
-            numeroTelefonicoEmpresa: 312,
-            correoElectronicoEmpresa: "correoElectronicoEmpresa",
-
-            nombreCompletoSupervisor: "nombreCompletoSupervisor",
-            cargoSupervisor: "cargoSupervisor",
-            telefonoSupervisor:33213,
-
-            descripcionTarea: "descripcionTarea",
-            importanciaTarea: "importanciaTarea",
-            fechaRealizacionTarea: "fechaRealizacionTarea3",
-            horasDedicadaTarea: 312,
-        },
-    ])
-    const [buscar,setBuscar]=useState("");
         const Error404=()=>{
             return(
                 <div className="Error">
@@ -66,8 +18,7 @@ export const Practicas=()=>{
 
         }
 
-        const FiltroListaPracticas= practicas.filter((practica)=> 
-        practica.fechaRealizacionTarea.toLowerCase().includes(buscar.toLowerCase()));
+       
     return(
         <>       
         <Router>
@@ -76,9 +27,6 @@ export const Practicas=()=>{
                             setPracticas={(practica)=>setPracticas([...practicas,practica])}
                             />}/>
                     <Route exact path="/consultarPracticas" element={<MostrarPracticas
-                            buscar={buscar}
-                            setBuscar={(busqueda)=>setBuscar(busqueda)} 
-                            FiltroListaPracticas={FiltroListaPracticas}
                             />}/>
                     <Route exact path="/" element={<MenuPrincipal/>}/>
                     <Route path="*" element={Error404()}/>              
