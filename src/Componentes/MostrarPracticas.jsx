@@ -88,7 +88,7 @@ export const MostrarPracticas = () => {
         </tbody>
       </table>
       <Link to="/">
-        <button onClick={() => window.close()}>Volver</button>
+        <button>Volver</button>
       </Link>
     </>
   );
