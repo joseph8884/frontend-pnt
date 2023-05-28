@@ -1,6 +1,6 @@
-
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { useState } from "react"
+import { useState} from "react"
 export const FormularioPracticas=({setPracticas})=>{
 
   //useState para Empresa
@@ -17,30 +17,40 @@ export const FormularioPracticas=({setPracticas})=>{
 
   //useState Tareas
   const [descripcionTarea, setDescripcionTarea] = useState("");
-  const [importanciaTarea, setImportanciaTarea] = useState("");
+  const [importanciaTarea, setImportanciaTarea] = useState("Baja");
   const [fechaRealizacionTarea, setFechaRealizacionTarea] = useState("");
-  const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("");
+  const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("1hr");
 
+
+  const navigate = useNavigate();
   const guardarPractica = (event) => {
- event.preventDefault();
-    let practica = {
-      nombreEmpresa: nombreEmpresa,
-      sitioWebEmpresa: sitioWebEmpresa,
-      direccionEmpresa: direccionEmpresa,
-      numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
-      correoElectronicoEmpresa: correoElectronicoEmpresa,
-
-      nombreCompletoSupervisor: nombreCompletoSupervisor,
-      cargoSupervisor: cargoSupervisor,
-      telefonoSupervisor: telefonoSupervisor,
-
-      descripcionTarea: descripcionTarea,
-      importanciaTarea: importanciaTarea,
-      fechaRealizacionTarea: fechaRealizacionTarea,
-      horasDedicadaTarea: horasDedicadaTarea,
-    };
-    console.log(practica)
-    setPracticas(practica);
+    event.preventDefault();
+    const form = event.target.form;
+    const isValid = form.checkValidity();
+  
+    if (!isValid) {
+      form.reportValidity();
+    } else {
+      let practica = {
+        nombreEmpresa: nombreEmpresa,
+        sitioWebEmpresa: sitioWebEmpresa,
+        direccionEmpresa: direccionEmpresa,
+        numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
+        correoElectronicoEmpresa: correoElectronicoEmpresa,
+  
+        nombreCompletoSupervisor: nombreCompletoSupervisor,
+        cargoSupervisor: cargoSupervisor,
+        telefonoSupervisor: telefonoSupervisor,
+  
+        descripcionTarea: descripcionTarea,
+        importanciaTarea: importanciaTarea,
+        fechaRealizacionTarea: fechaRealizacionTarea,
+        horasDedicadaTarea: horasDedicadaTarea,
+      };
+      console.log(practica)
+      setPracticas(practica);
+      navigate('/');
+    }
   };
   const [seccion, setSeccion] = useState(1);
     const avanzarSeccion = (event) => {
@@ -105,8 +115,7 @@ export const FormularioPracticas=({setPracticas})=>{
                   id="direccionEmpresa"
                   value={direccionEmpresa}
                   onChange={(e) => setDireccionEmpresa(e.target.value)}
-                  placeholder="bogotá,carrera 11 #8-20 "
-                  pattern= "A-Za-záéíóúÁÉÍÓÚ\s]\d+(\s\d+)*\s[A-Za-záéíóúÁÉÍÓÚ\s]+$/"
+                  placeholder="Dirección, EJ: carrera 11 #8-20,Bogotá,Colombia "
                   required
                 />
               </div>
@@ -216,8 +225,6 @@ export const FormularioPracticas=({setPracticas})=>{
               <div className="campo">
               <label htmlFor="importanciaTarea">Importancia de la tarea </label>
               <select
-                class="form-select"
-                aria-label="Default select example"
                 name="importanciaTarea"
                 className="form-control"
                 id="importanciaTarea"
@@ -233,7 +240,6 @@ export const FormularioPracticas=({setPracticas})=>{
             }
             {
             <div className="campo">
-              <form>
                 <label htmlFor="fechaRealizacionTarea"
                   >Fecha de realizacion de la tarea:
                   <input type="date" name="fechaRealizacionTarea" min="2017-04-01" max="2023-12-31" 
@@ -243,15 +249,12 @@ export const FormularioPracticas=({setPracticas})=>{
                   required
                   />
                 </label>
-              </form>
             </div>
             }
             {
               <div className="campo">
               <label htmlFor="horasDedicadaTarea">Horas dedicadas a la tarea </label>
               <select
-                class="form-select"
-                aria-label="Default select example"
                 name="horasDedicadaTarea"
                 className="form-control"
                 id="horasDedicadaTarea"
@@ -270,13 +273,14 @@ export const FormularioPracticas=({setPracticas})=>{
               </div>
             }
             <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
-            <Link to="/"  ><button onClick={guardarPractica}>Guardar</button> </Link>
+            <button onClick={guardarPractica}>Guardar</button>
           </div>
         );
       default:
         return null;
     }
   };
+
 return (
         <>
      <form className="formulario">{renderSecciones()}</form>
