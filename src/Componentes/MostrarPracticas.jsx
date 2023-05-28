@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { getPracticas } from "../Peticiones/getPracticas";
 import { useEffect, useState } from "react";
-import { delatePracticas } from "../Peticiones/delatePracticas";
+import { deletePracticas } from "../Peticiones/deletePracticas";
 export const MostrarPracticas = () => {
   const [buscar,setBuscar]=useState("");
   const [practicas,setPracticas]=useState([]);
@@ -76,7 +76,7 @@ export const MostrarPracticas = () => {
               </td>
               <td>
                 <button style={{ backgroundColor: "red" }} className="Boton" onClick={()=>{
-                  delatePracticas(Practica)
+                  deletePracticas(Practica)
                    console.log(Practica)}}>
                   X
                 </button>
