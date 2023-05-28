@@ -31,22 +31,30 @@ export const FormularioPracticas=({setPracticas})=>{
     if (!isValid) {
       form.reportValidity();
     } else {
-      let practica = {
+      let empresa={
         nombreEmpresa: nombreEmpresa,
         sitioWebEmpresa: sitioWebEmpresa,
         direccionEmpresa: direccionEmpresa,
-        numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
-        correoElectronicoEmpresa: correoElectronicoEmpresa,
-  
+        numeroTelefonoEmpresa: numeroTelefonicoEmpresa,
+        emailEmpresa: correoElectronicoEmpresa,
+      }
+      let supervisor={
         nombreCompletoSupervisor: nombreCompletoSupervisor,
         cargoSupervisor: cargoSupervisor,
         telefonoSupervisor: telefonoSupervisor,
-  
+      }
+      let tarea={
         descripcionTarea: descripcionTarea,
         importanciaTarea: importanciaTarea,
         fechaRealizacionTarea: fechaRealizacionTarea,
         horasDedicadaTarea: horasDedicadaTarea,
+      }
+      let practica = {
+        empresa,
+        supervisor,
+        tarea
       };
+      console.log(practica)
       setPracticas(practica);
       navigate('/');
     }

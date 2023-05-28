@@ -4,6 +4,7 @@ import { FormularioPracticas } from "./Componentes/FormularioPracticas"
 import { MostrarPracticas } from "./Componentes/MostrarPracticas";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { MenuPrincipal } from "./Componentes/MenuPrincipal";
+import { postPracticas } from "./Peticiones/postPracticas";
 export const Practicas=()=>{
          //useState Practicas
         const [practicas, setPracticas]=useState([])
@@ -24,7 +25,11 @@ export const Practicas=()=>{
         <Router>
                 <Routes>
                     <Route exact path="/registrarPracticas" element={<FormularioPracticas
-                            setPracticas={(practica)=>setPracticas([...practicas,practica])}
+                            setPracticas={(practica)=>{
+                                setPracticas([...practicas,practica])
+                                
+                                postPracticas(practica)
+                            }}
                             />}/>
                     <Route exact path="/consultarPracticas" element={<MostrarPracticas
                             />}/>

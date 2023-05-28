@@ -18,6 +18,5 @@ export const getPracticas = async() => {
         fechaRealizacionTarea: practica.tarea.fechaRealizacionTarea,
         horasDedicadaTarea: practica.tarea.fechaRealizacionTarea
     }))
-    console.log(practicasLista)
-  return practicasLista;
+return practicasLista;
 }
