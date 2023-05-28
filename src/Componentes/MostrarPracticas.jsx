@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { Practicas } from "../Practicas";
-import { useEffect, useState } from "react";
 export const MostrarPracticas = ({
   buscar,
   setBuscar,
