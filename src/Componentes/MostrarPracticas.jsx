@@ -21,9 +21,9 @@ export const MostrarPracticas = ({
     {FiltroListaPracticas.map((Practicas)=>
      <tr key={Practicas.fecha}>
      <th scope="row">1</th>
-     <td>{Practicas.nombreEmpresa}<br></br> {Practicas.correoElectronicoEmpresa} <br></br> {Practicas.numeroTelefonicoEmpresa} <br></br> {Practicas.ireccionEmpresa}</td>
-     <td>{Practicas.nombreCompletoSupervisor} <br></br> {Practicas.telefonoSupervisor}  <br></br> {Practicas.argoSupervisor}</td>
-     <td>{Practicas.descripcionTarea} <br></br> {Practicas.fechaRealizacionTarea}<br></br> {Practicas.importanciaTarea} <br></br>{Practicas.horasDedicadaTarea} </td>
+     <td>Nombre:{Practicas.nombreEmpresa}<br></br>Correo:{Practicas.correoElectronicoEmpresa} <br></br>Teléfono:{Practicas.numeroTelefonicoEmpresa} <br></br>Dirección:{Practicas.direccionEmpresa}</td>
+     <td>Nombre:{Practicas.nombreCompletoSupervisor} <br></br>Teléfono:{Practicas.telefonoSupervisor}  <br></br>Cargo:{Practicas.cargoSupervisor}</td>
+     <td>Descripción:{Practicas.descripcionTarea} <br></br>Fecha:{Practicas.fechaRealizacionTarea}<br></br>Importancia:{Practicas.importanciaTarea} <br></br>Horas:{Practicas.horasDedicadaTarea} </td>
      <td> <button className='Boton'>X</button></td>
    </tr>
     
