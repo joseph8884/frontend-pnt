@@ -7,7 +7,7 @@ export const getPracticas = async() => {
         sitioWebEmpresa: practica.empresa.sitioWebEmpresa,
         direccionEmpresa: practica.empresa.direccionEmpresa,
         numeroTelefonoEmpresa: practica.empresa.numeroTelefonoEmpresa,
-        descripcionEmpresa: practica.empresa.descripcionEmpresa,
+        emailEmpresa: practica.empresa.emailEmpresa,
 
         nombreCompletoSupervisor: practica.supervisor.nombreCompletoSupervisor,
         cargoSupervisor: practica.supervisor.cargoSupervisor,
