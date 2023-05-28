@@ -1,12 +1,32 @@
 import { Link } from 'react-router-dom'
 import { Practicas } from '../Practicas'
+import { useState } from "react"
+
 export const MostrarPracticas = ({
-    buscar,
-    setbuscar,
     FiltroListaPracticas,
+
 })=>{
+
+  const [buscar,setBuscar]=useState("");
+
+  const Buscador=()=>{
+    return(
+    
+<div className="Busqueda">
+    <label htmlFor="id">BUSCAR POR FECHA PRÁCTICA</label>
+        <input 
+            type="date" 
+            className="form-control" 
+            id="id" 
+            value={buscar} onChange={(event) => setbuscar(event.target.value)} />
+</div>
+  )}
+
+  
     return(              
 <>
+{Buscador()}
+<br />
 <table class="table table-striped">
   <thead>
     <tr>

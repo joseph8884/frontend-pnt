@@ -14,7 +14,6 @@ setPracticas={(practica)=>setPracticas([...practicas,practica])}
 export const Practicas=()=>{
          //useState Practicas
         const [practicas, setPracticas]=useState([])
-        const [buscar,setBuscar]=useState("");
         const Error404=()=>{
             return(
                 <div className="Error">
