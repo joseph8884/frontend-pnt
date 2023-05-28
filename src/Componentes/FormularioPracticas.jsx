@@ -1,6 +1,6 @@
-
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { useState } from "react"
+import { useState} from "react"
 export const FormularioPracticas=({setPracticas})=>{
 
   //useState para Empresa
@@ -21,6 +21,8 @@ export const FormularioPracticas=({setPracticas})=>{
   const [fechaRealizacionTarea, setFechaRealizacionTarea] = useState("");
   const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("1hr");
 
+
+  const navigate = useNavigate();
   const guardarPractica = (event) => {
     event.preventDefault();
     const form = event.target.form;
@@ -47,6 +49,7 @@ export const FormularioPracticas=({setPracticas})=>{
       };
       console.log(practica)
       setPracticas(practica);
+      navigate('/');
     }
   };
   const [seccion, setSeccion] = useState(1);
@@ -270,13 +273,14 @@ export const FormularioPracticas=({setPracticas})=>{
               </div>
             }
             <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
-            <Link to="/"><button onClick={guardarPractica}>Guardar</button> </Link>
+            <button onClick={guardarPractica}>Guardar</button>
           </div>
         );
       default:
         return null;
     }
   };
+
 return (
         <>
      <form className="formulario">{renderSecciones()}</form>
