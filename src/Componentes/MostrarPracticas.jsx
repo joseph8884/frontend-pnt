@@ -18,6 +18,7 @@ export const MostrarPracticas = ({
     </tr>
   </thead>
   <tbody>
+    {console.log(FiltroListaPracticas)}
     {FiltroListaPracticas.map((Practicas)=>
      <tr key={Practicas.fecha}>
      <th scope="row">1</th>
