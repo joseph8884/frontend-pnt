@@ -1,5 +1,5 @@
-export const deletePracticas = async ({ id }) => {
-    const url = `https://localhost:8080/practica/eliminar/${id}`;
+export const deletePracticas = async ({id}) => {
+    const url = `http://localhost:8080/practica/eliminar/${id}`;
     try {
       const resp = await fetch(url, {
         method: 'DELETE',

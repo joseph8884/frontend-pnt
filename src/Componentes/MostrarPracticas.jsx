@@ -78,8 +78,9 @@ export const MostrarPracticas = () => {
               </td>
               <td>
                 <button style={{ backgroundColor: "red" }} className="Boton" onClick={()=>{
-                  deletePracticas(Practica)
-                   console.log(Practica)}}>
+                  deletePracticas(Practica);
+                  document.location.reload();
+                  }}>
                   X
                 </button>
               </td>

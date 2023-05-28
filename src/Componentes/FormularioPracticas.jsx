@@ -77,7 +77,9 @@ export const FormularioPracticas=({setPracticas})=>{
         setSeccion((prevSeccion) => prevSeccion - 1);
       };
       
-      const fechaActual = new Date().toISOString().split('T')[0]; //Obtener la fecha actual con el formato YYYY-MM-DD
+      const fechaActual =new Date();
+      const fechaLimite = new Date(fechaActual.getTime() + 24 * 60 * 60 * 1000);
+      const fechaMax= fechaLimite.toISOString().split('T')[0];//Obtener la fecha actual con el formato YYYY-MM-DD
 
   const renderSecciones = () => {
     switch (seccion) {
@@ -268,7 +270,7 @@ export const FormularioPracticas=({setPracticas})=>{
             <div className="campo">
                 <label htmlFor="fechaRealizacionTarea"
                   >Fecha de realizacion de la tarea:
-                  <input type="date" name="fechaRealizacionTarea" min="2017-04-01" max={fechaActual} 
+                  <input type="date" name="fechaRealizacionTarea" min="2017-04-01" max={fechaMax} 
                   id="fechaRealizacionTarea"
                   value={fechaRealizacionTarea}
                   onChange={(e) => setFechaRealizacionTarea(e.target.value)}   
