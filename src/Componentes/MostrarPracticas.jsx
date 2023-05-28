@@ -40,29 +40,29 @@ export const MostrarPracticas = ({
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>
-                Nombre: {Practicas.nombreEmpresa}
+                <b>Nombre: </b>  {Practicas.nombreEmpresa}
                 <br />
-                Correo: {Practicas.correoElectronicoEmpresa}
+                <b>Correo: </b> {Practicas.correoElectronicoEmpresa}
                 <br />
-                Teléfono: {Practicas.numeroTelefonicoEmpresa}
+                <b>Teléfono:</b> {Practicas.numeroTelefonicoEmpresa}
                 <br />
-                Dirección: {Practicas.direccionEmpresa}
+                <b>Dirección:</b> {Practicas.direccionEmpresa}
               </td>
               <td>
-                Nombre: {Practicas.nombreCompletoSupervisor}
+                <b>Nombre:</b> {Practicas.nombreCompletoSupervisor}
                 <br />
-                Teléfono: {Practicas.telefonoSupervisor}
+                <b>Teléfono:</b> {Practicas.telefonoSupervisor}
                 <br />
-                Cargo: {Practicas.cargoSupervisor}
+                <b>Cargo:</b> {Practicas.cargoSupervisor}
               </td>
               <td>
-                Descripción: {Practicas.descripcionTarea}
+                <b>Descripción:</b> {Practicas.descripcionTarea}
                 <br />
-                Fecha: {Practicas.fechaRealizacionTarea}
+                <b>Fecha:</b> {Practicas.fechaRealizacionTarea}
                 <br />
-                Importancia: {Practicas.importanciaTarea}
+                <b>Importancia:</b> {Practicas.importanciaTarea}
                 <br />
-                Horas: {Practicas.horasDedicadaTarea}
+                <b>Horas:</b> {Practicas.horasDedicadaTarea}
               </td>
               <td>
                 <button style={{ backgroundColor: "red" }} className="Boton">
