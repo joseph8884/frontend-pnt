@@ -4,13 +4,6 @@ import { FormularioPracticas } from "./Componentes/FormularioPracticas"
 import { MostrarPracticas } from "./Componentes/MostrarPracticas";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { MenuPrincipal } from "./Componentes/MenuPrincipal";
-
-/*<FormularioPracticas
-practicas={practicas}
-setPracticas={(practica)=>setPracticas([...practicas,practica])}
-/>
-*/
-
 export const Practicas=()=>{
          //useState Practicas
         const [practicas, setPracticas]=useState([{
@@ -62,7 +55,7 @@ export const Practicas=()=>{
             horasDedicadaTarea: 312,
         },
     ])
-        const [buscar,setBuscar]=useState("");
+    const [buscar,setBuscar]=useState("");
         const Error404=()=>{
             return(
                 <div className="Error">
@@ -86,7 +79,7 @@ export const Practicas=()=>{
                             buscar={buscar}
                             setBuscar={(busqueda)=>setBuscar(busqueda)} 
                             FiltroListaPracticas={FiltroListaPracticas}
-                           />}/>
+                            />}/>
                     <Route exact path="/" element={<MenuPrincipal/>}/>
                     <Route path="*" element={Error404()}/>              
                 </Routes>

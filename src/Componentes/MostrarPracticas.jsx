@@ -3,11 +3,27 @@ import { Practicas } from '../Practicas'
 import { useEffect, useState } from 'react'
 export const MostrarPracticas = ({
     buscar,
-    setbuscar,
+    setBuscar,
     FiltroListaPracticas,
+
 })=>{
+
+const Buscador=()=>{
+    return(
+    
+    <div className="Busqueda">
+    <label htmlFor="id">BUSCAR POR FECHA PRÁCTICA</label>
+        <input 
+            type="date" 
+            className="form-control" 
+            id="id" 
+            value={buscar} onChange={(event) => setBuscar(event.target.value)} />
+    </div>
+)}
     return(              
 <>
+{Buscador()}
+<br />
 <table class="table table-striped">
   <thead>
     <tr>
@@ -20,21 +36,18 @@ export const MostrarPracticas = ({
 </thead>
 <tbody>
     {console.log(FiltroListaPracticas)}
-    {FiltroListaPracticas.map((Practicas)=>{
-    return(
-        <>
-        <tr key={Practicas.fecha}>
-        <th scope="row">#</th>
-        <td>{Practicas.nombreEmpresa}<br></br> {Practicas.correoElectronicoEmpresa} <br></br> {Practicas.numeroTelefonicoEmpresa} <br></br> {Practicas.ireccionEmpresa}</td>
-        <td>{Practicas.nombreCompletoSupervisor} <br></br> {Practicas.telefonoSupervisor}  <br></br> {Practicas.argoSupervisor}</td>
-        <td>{Practicas.descripcionTarea} <br></br> {Practicas.fechaRealizacionTarea}<br></br> {Practicas.importanciaTarea} <br></br>{Practicas.horasDedicadaTarea} </td>
-        <td> <button className='Boton'>X</button></td>
-        </tr>
-        </>
-    ) 
-
-})}
-</tbody>
+    {FiltroListaPracticas.map((Practicas)=>
+     <tr key={Practicas.fecha}>
+     <th scope="row">1</th>
+     <td>Nombre:{Practicas.nombreEmpresa}<br></br>Correo:{Practicas.correoElectronicoEmpresa} <br></br>Teléfono:{Practicas.numeroTelefonicoEmpresa} <br></br>Dirección:{Practicas.direccionEmpresa}</td>
+     <td>Nombre:{Practicas.nombreCompletoSupervisor} <br></br>Teléfono:{Practicas.telefonoSupervisor}  <br></br>Cargo:{Practicas.cargoSupervisor}</td>
+     <td>Descripción:{Practicas.descripcionTarea} <br></br>Fecha:{Practicas.fechaRealizacionTarea}<br></br>Importancia:{Practicas.importanciaTarea} <br></br>Horas:{Practicas.horasDedicadaTarea} </td>
+     <td> <button className='Boton'>X</button></td>
+   </tr>
+    
+    )}
+   
+  </tbody>
 </table>
     <Link to="/"><button onClick={()=> window.close()}>Volver</button></Link>
     </>
