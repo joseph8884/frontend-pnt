@@ -6,9 +6,9 @@ export const MostrarPracticas = ()=>{
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Datos Empresa</th>
+      <th scope="col">Datos Supervisor</th>
+      <th scope="col">Tareas</th>
     </tr>
   </thead>
   <tbody>
