@@ -14,13 +14,19 @@ setPracticas={(practica)=>setPracticas([...practicas,practica])}
 export const Practicas=()=>{
          //useState Practicas
         const [practicas, setPracticas]=useState([])
+        const [buscar,setBuscar]=useState("");
         const Error404=()=>{
             return(
                 <div className="Error">
                     <h1>LOSIENTO, SU PAGINA NO SE PUDO ENCONTRAR err: <b>404</b></h1>
                 </div>
             )
+
+
         }
+
+        const FiltroListaPracticas= practicas.filter((practica)=> 
+        practica.fechaRealizacionTarea.toLowerCase().includes(buscar.toLowerCase()));
     return(
         <>       
         <Router>
@@ -41,4 +47,7 @@ export const Practicas=()=>{
         }
         </>
     )
+
+
+
 }
