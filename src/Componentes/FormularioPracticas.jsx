@@ -22,6 +22,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
   const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("");
 
   const guardarPractica = (event) => {
+    event.preventDefault();
     let practica = {
       nombreEmpresa: nombreEmpresa,
       sitioWebEmpresa: sitioWebEmpresa,

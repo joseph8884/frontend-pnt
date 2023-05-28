@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom'
-export const MostrarPracticas = ()=>{
+import { Practicas } from '../Practicas'
+export const MostrarPracticas = ({
+    buscar,
+    setbuscar,
+    FiltroListaPracticas,
+})=>{
     return(              
 <>
 <table class="table table-striped">
@@ -9,27 +14,21 @@ export const MostrarPracticas = ()=>{
       <th scope="col">Datos Empresa</th>
       <th scope="col">Datos Supervisor</th>
       <th scope="col">Tareas</th>
+      <th scope="col">Eliminar</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    {FiltroListaPracticas.map((Practicas)=>
+     <tr key={Practicas.fecha}>
+     <th scope="row">1</th>
+     <td>{Practicas.nombreEmpresa}<br></br> {Practicas.correoElectronicoEmpresa} <br></br> {Practicas.numeroTelefonicoEmpresa} <br></br> {Practicas.ireccionEmpresa}</td>
+     <td>{Practicas.nombreCompletoSupervisor} <br></br> {Practicas.telefonoSupervisor}  <br></br> {Practicas.argoSupervisor}</td>
+     <td>{Practicas.descripcionTarea} <br></br> {Practicas.fechaRealizacionTarea}<br></br> {Practicas.importanciaTarea} <br></br>{Practicas.horasDedicadaTarea} </td>
+     <td> <button className='Boton'>X</button></td>
+   </tr>
+    
+    )}
+   
   </tbody>
 </table>
 

@@ -34,10 +34,13 @@ export const Practicas=()=>{
                     <Route exact path="/registrarPracticas" element={<FormularioPracticas
                             practicas={practicas}
                             setPracticas={(practica)=>setPracticas([...practicas,practica])}
+
                             />}/>
-                    <Route exact path="/consultarPracticas" element={
-                            <MostrarPracticas/>
-                            }/>
+                    <Route exact path="/consultarPracticas" element={<MostrarPracticas
+                            buscar={buscar}
+                            setBuscar={(busqueda)=>setBuscar(busqueda)} 
+                            FiltroListaPracticas={FiltroListaPracticas}
+                           />}/>
                     <Route exact path="/" element={<MenuPrincipal/>}/>
                     <Route path="*" element={Error404()}/>              
                 </Routes>
