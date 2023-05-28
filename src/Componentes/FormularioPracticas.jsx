@@ -22,25 +22,32 @@ export const FormularioPracticas=({setPracticas})=>{
   const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("1hr");
 
   const guardarPractica = (event) => {
- event.preventDefault();
-    let practica = {
-      nombreEmpresa: nombreEmpresa,
-      sitioWebEmpresa: sitioWebEmpresa,
-      direccionEmpresa: direccionEmpresa,
-      numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
-      correoElectronicoEmpresa: correoElectronicoEmpresa,
-
-      nombreCompletoSupervisor: nombreCompletoSupervisor,
-      cargoSupervisor: cargoSupervisor,
-      telefonoSupervisor: telefonoSupervisor,
-
-      descripcionTarea: descripcionTarea,
-      importanciaTarea: importanciaTarea,
-      fechaRealizacionTarea: fechaRealizacionTarea,
-      horasDedicadaTarea: horasDedicadaTarea,
-    };
-    console.log(practica)
-    setPracticas(practica);
+    event.preventDefault();
+    const form = event.target.form;
+    const isValid = form.checkValidity();
+  
+    if (!isValid) {
+      form.reportValidity();
+    } else {
+      let practica = {
+        nombreEmpresa: nombreEmpresa,
+        sitioWebEmpresa: sitioWebEmpresa,
+        direccionEmpresa: direccionEmpresa,
+        numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
+        correoElectronicoEmpresa: correoElectronicoEmpresa,
+  
+        nombreCompletoSupervisor: nombreCompletoSupervisor,
+        cargoSupervisor: cargoSupervisor,
+        telefonoSupervisor: telefonoSupervisor,
+  
+        descripcionTarea: descripcionTarea,
+        importanciaTarea: importanciaTarea,
+        fechaRealizacionTarea: fechaRealizacionTarea,
+        horasDedicadaTarea: horasDedicadaTarea,
+      };
+      console.log(practica)
+      setPracticas(practica);
+    }
   };
   const [seccion, setSeccion] = useState(1);
     const avanzarSeccion = (event) => {
