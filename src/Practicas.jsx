@@ -32,9 +32,7 @@ export const Practicas=()=>{
         <Router>
                 <Routes>
                     <Route exact path="/registrarPracticas" element={<FormularioPracticas
-                            practicas={practicas}
                             setPracticas={(practica)=>setPracticas([...practicas,practica])}
-
                             />}/>
                     <Route exact path="/consultarPracticas" element={<MostrarPracticas
                             buscar={buscar}

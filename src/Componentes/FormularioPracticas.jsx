@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom'
 import { useState } from "react"
-export const FormularioPracticas=({practicas, setPracticas})=>{
+export const FormularioPracticas=({setPracticas})=>{
 
   //useState para Empresa
   const [nombreEmpresa, setNombreEmpresa] = useState("");
@@ -22,7 +22,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
   const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("");
 
   const guardarPractica = (event) => {
-    event.preventDefault();
+ event.preventDefault();
     let practica = {
       nombreEmpresa: nombreEmpresa,
       sitioWebEmpresa: sitioWebEmpresa,
@@ -39,6 +39,7 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
       fechaRealizacionTarea: fechaRealizacionTarea,
       horasDedicadaTarea: horasDedicadaTarea,
     };
+    console.log(practica)
     setPracticas(practica);
   };
   const [seccion, setSeccion] = useState(1);
