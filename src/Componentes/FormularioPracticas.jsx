@@ -17,9 +17,9 @@ export const FormularioPracticas=({setPracticas})=>{
 
   //useState Tareas
   const [descripcionTarea, setDescripcionTarea] = useState("");
-  const [importanciaTarea, setImportanciaTarea] = useState("");
+  const [importanciaTarea, setImportanciaTarea] = useState("Baja");
   const [fechaRealizacionTarea, setFechaRealizacionTarea] = useState("");
-  const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("");
+  const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("1hr");
 
   const guardarPractica = (event) => {
  event.preventDefault();
@@ -270,7 +270,7 @@ export const FormularioPracticas=({setPracticas})=>{
               </div>
             }
             <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
-            <Link to="/"  ><button onClick={guardarPractica}>Guardar</button> </Link>
+            <Link to="/"><button onClick={guardarPractica}>Guardar</button> </Link>
           </div>
         );
       default:
