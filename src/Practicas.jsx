@@ -13,7 +13,55 @@ setPracticas={(practica)=>setPracticas([...practicas,practica])}
 
 export const Practicas=()=>{
          //useState Practicas
-        const [practicas, setPracticas]=useState([])
+        const [practicas, setPracticas]=useState([{
+            nombreEmpresa: "asdas",
+            sitioWebEmpresa: "sitioWebEmpresa",
+            direccionEmpresa: "direccionEmpresa",
+            numeroTelefonicoEmpresa: 312,
+            correoElectronicoEmpresa: "correoElectronicoEmpresa",
+
+            nombreCompletoSupervisor: "nombreCompletoSupervisor",
+            cargoSupervisor: "cargoSupervisor",
+            telefonoSupervisor:33213,
+
+            descripcionTarea: "descripcionTarea",
+            importanciaTarea: "importanciaTarea",
+            fechaRealizacionTarea: "fechaRealizacionTarea1",
+            horasDedicadaTarea: 312,
+        },
+        {
+            nombreEmpresa: "asdas",
+            sitioWebEmpresa: "sitioWebEmpresa",
+            direccionEmpresa: "direccionEmpresa",
+            numeroTelefonicoEmpresa: 312,
+            correoElectronicoEmpresa: "correoElectronicoEmpresa",
+
+            nombreCompletoSupervisor: "nombreCompletoSupervisor",
+            cargoSupervisor: "cargoSupervisor",
+            telefonoSupervisor:33213,
+
+            descripcionTarea: "descripcionTarea",
+            importanciaTarea: "importanciaTarea",
+            fechaRealizacionTarea: "fechaRealizacionTarea2",
+            horasDedicadaTarea: 312,
+        },
+        {
+            nombreEmpresa: "asdas",
+            sitioWebEmpresa: "sitioWebEmpresa",
+            direccionEmpresa: "direccionEmpresa",
+            numeroTelefonicoEmpresa: 312,
+            correoElectronicoEmpresa: "correoElectronicoEmpresa",
+
+            nombreCompletoSupervisor: "nombreCompletoSupervisor",
+            cargoSupervisor: "cargoSupervisor",
+            telefonoSupervisor:33213,
+
+            descripcionTarea: "descripcionTarea",
+            importanciaTarea: "importanciaTarea",
+            fechaRealizacionTarea: "fechaRealizacionTarea3",
+            horasDedicadaTarea: 312,
+        },
+    ])
         const [buscar,setBuscar]=useState("");
         const Error404=()=>{
             return(
