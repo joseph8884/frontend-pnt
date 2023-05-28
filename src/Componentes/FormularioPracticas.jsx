@@ -105,8 +105,7 @@ export const FormularioPracticas=({setPracticas})=>{
                   id="direccionEmpresa"
                   value={direccionEmpresa}
                   onChange={(e) => setDireccionEmpresa(e.target.value)}
-                  placeholder="bogotá,carrera 11 #8-20 "
-                  pattern= "A-Za-záéíóúÁÉÍÓÚ\s]\d+(\s\d+)*\s[A-Za-záéíóúÁÉÍÓÚ\s]+$/"
+                  placeholder="Dirección, EJ: carrera 11 #8-20,Bogotá,Colombia "
                   required
                 />
               </div>
@@ -216,8 +215,6 @@ export const FormularioPracticas=({setPracticas})=>{
               <div className="campo">
               <label htmlFor="importanciaTarea">Importancia de la tarea </label>
               <select
-                class="form-select"
-                aria-label="Default select example"
                 name="importanciaTarea"
                 className="form-control"
                 id="importanciaTarea"
@@ -233,7 +230,6 @@ export const FormularioPracticas=({setPracticas})=>{
             }
             {
             <div className="campo">
-              <form>
                 <label htmlFor="fechaRealizacionTarea"
                   >Fecha de realizacion de la tarea:
                   <input type="date" name="fechaRealizacionTarea" min="2017-04-01" max="2023-12-31" 
@@ -243,15 +239,12 @@ export const FormularioPracticas=({setPracticas})=>{
                   required
                   />
                 </label>
-              </form>
             </div>
             }
             {
               <div className="campo">
               <label htmlFor="horasDedicadaTarea">Horas dedicadas a la tarea </label>
               <select
-                class="form-select"
-                aria-label="Default select example"
                 name="horasDedicadaTarea"
                 className="form-control"
                 id="horasDedicadaTarea"
