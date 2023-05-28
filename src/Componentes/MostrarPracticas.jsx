@@ -13,7 +13,7 @@ export const MostrarPracticas = () => {
     cargarPracticas()
   },[])
 
-  const FiltroListaPracticas= practicas.filter((practica)=> practica.fechaRealizacionTarea.toLowerCase().includes(buscar.toLowerCase()));
+  const FiltroListaPracticas= practicas.filter((practica)=> practica.tarea.fechaRealizacionTarea.toLowerCase().includes(buscar.toLowerCase()));
   const Buscador = () => {
     return (
       <div className="input-group mb-3">
@@ -52,29 +52,29 @@ export const MostrarPracticas = () => {
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>
-                <b>Nombre: </b>  {Practica.nombreEmpresa}
+                <b>Nombre: </b>  {Practica.empresa.nombreEmpresa}
                 <br />
-                <b>Correo: </b> {Practica.emailEmpresa}
+                <b>Correo: </b> {Practica.empresa.emailEmpresa}
                 <br />
-                <b>Teléfono:</b> {Practica.numeroTelefonoEmpresa}
+                <b>Teléfono:</b> {Practica.empresa.numeroTelefonoEmpresa}
                 <br />
-                <b>Dirección:</b> {Practica.direccionEmpresa}
+                <b>Dirección:</b> {Practica.empresa.direccionEmpresa}
               </td>
               <td>
-                <b>Nombre:</b> {Practica.nombreCompletoSupervisor}
+                <b>Nombre:</b> {Practica.supervisor.nombreCompletoSupervisor}
                 <br />
-                <b>Teléfono:</b> {Practica.telefonoSupervisor}
+                <b>Teléfono:</b> {Practica.supervisor.telefonoSupervisor}
                 <br />
-                <b>Cargo:</b> {Practica.cargoSupervisor}
+                <b>Cargo:</b> {Practica.supervisor.cargoSupervisor}
               </td>
               <td>
-                <b>Descripción:</b> {Practica.descripcionTarea}
+                <b>Descripción:</b> {Practica.tarea.descripcionTarea}
                 <br />
-                <b>Fecha:</b> {Practica.fechaRealizacionTarea}
+                <b>Fecha:</b> {Practica.tarea.fechaRealizacionTarea}
                 <br />
-                <b>Importancia:</b> {Practica.importanciaTarea}
+                <b>Importancia:</b> {Practica.tarea.importanciaTarea}
                 <br />
-                <b>Horas:</b> {Practica.horasDedicadaTarea}
+                <b>Horas:</b> {Practica.tarea.horasDedicadaTarea}
               </td>
               <td>
                 <button style={{ backgroundColor: "red" }} className="Boton" onClick={()=>{
