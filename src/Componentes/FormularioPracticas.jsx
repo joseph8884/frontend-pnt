@@ -1,8 +1,8 @@
+
 import { json, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { useState} from "react"
 export const FormularioPracticas=({setPracticas})=>{
-
   //useState para Empresa
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [sitioWebEmpresa, setSitioWebEmpresa] = useState("");
@@ -21,37 +21,45 @@ export const FormularioPracticas=({setPracticas})=>{
   const [fechaRealizacionTarea, setFechaRealizacionTarea] = useState("");
   const [horasDedicadaTarea, setHorasDedicadaTarea] = useState("1hr");
 
-
   const navigate = useNavigate();
   const guardarPractica = (event) => {
     event.preventDefault();
     const form = event.target.form;
     const isValid = form.checkValidity();
-  
+
     if (!isValid) {
       form.reportValidity();
     } else {
-      let practica = {
+      let empresa = {
         nombreEmpresa: nombreEmpresa,
         sitioWebEmpresa: sitioWebEmpresa,
         direccionEmpresa: direccionEmpresa,
-        numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
-        correoElectronicoEmpresa: correoElectronicoEmpresa,
-  
+        numeroTelefonoEmpresa: numeroTelefonicoEmpresa,
+        emailEmpresa: correoElectronicoEmpresa,
+      };
+      let supervisor = {
         nombreCompletoSupervisor: nombreCompletoSupervisor,
         cargoSupervisor: cargoSupervisor,
         telefonoSupervisor: telefonoSupervisor,
-  
+      };
+      let tarea = {
         descripcionTarea: descripcionTarea,
         importanciaTarea: importanciaTarea,
         fechaRealizacionTarea: fechaRealizacionTarea,
         horasDedicadaTarea: horasDedicadaTarea,
       };
+      let practica = {
+        empresa,
+        supervisor,
+        tarea,
+      };
+      console.log(practica);
       setPracticas(practica);
-      navigate('/');
+      navigate("/");
     }
   };
   const [seccion, setSeccion] = useState(1);
+
     const avanzarSeccion = (event) => {
         event.preventDefault();
       
@@ -70,6 +78,7 @@ export const FormularioPracticas=({setPracticas})=>{
       };
       
       const fechaActual = new Date().toISOString().split('T')[0]; //Obtener la fecha actual con el formato YYYY-MM-DD
+
   const renderSecciones = () => {
     switch (seccion) {
       case 1:
@@ -207,12 +216,13 @@ export const FormularioPracticas=({setPracticas})=>{
                   max={11}
                   maxLength={11}
                   required
-               />
-             </div>
+                />
+              </div>
             }
-            <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
-            <button  onClick={avanzarSeccion}>Siguiente</button>
-            
+            <button className="retrocederboton" onClick={retrocederSeccion}>
+              Atrás
+            </button>
+            <button onClick={avanzarSeccion}>Siguiente</button>
           </div>
         );
       case 3:
@@ -236,22 +246,25 @@ export const FormularioPracticas=({setPracticas})=>{
             }
             {
               <div className="campo">
-              <label htmlFor="importanciaTarea">Importancia de la tarea </label>
-              <select
-                name="importanciaTarea"
-                className="form-control"
-                id="importanciaTarea"
-                value={importanciaTarea}
-                onChange={(event) => setImportanciaTarea(event.target.value)}
-                required
-              >
-                <option>Baja</option>
-                <option>Media</option>
-                <option>Alta</option>
-              </select>
+                <label htmlFor="importanciaTarea">
+                  Importancia de la tarea{" "}
+                </label>
+                <select
+                  name="importanciaTarea"
+                  className="form-control"
+                  id="importanciaTarea"
+                  value={importanciaTarea}
+                  onChange={(event) => setImportanciaTarea(event.target.value)}
+                  required
+                >
+                  <option value="BAJA">Baja</option>
+                  <option value="MEDIA">Media</option>
+                  <option value="ALTA">Alta</option>
+                </select>
               </div>
             }
             {
+
             <div className="campo">
                 <label htmlFor="fechaRealizacionTarea"
                   >Fecha de realizacion de la tarea:
@@ -262,7 +275,7 @@ export const FormularioPracticas=({setPracticas})=>{
                   required
                   />
                 </label>
-            </div>
+              </div>
             }
             {
               <div className="campo">
@@ -283,9 +296,12 @@ export const FormularioPracticas=({setPracticas})=>{
                 <option>6hr</option>
                 <option>+6hr</option>
               </select>
+
               </div>
             }
-            <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
+            <button className="retrocederboton" onClick={retrocederSeccion}>
+              Atrás
+            </button>
             <button onClick={guardarPractica}>Guardar</button>
           </div>
         );
@@ -294,11 +310,12 @@ export const FormularioPracticas=({setPracticas})=>{
     }
   };
 
-return (
-        <>
-     <form className="formulario">{renderSecciones()}</form>
-        <Link to="/"><button>Volver al menu principal</button></Link>
-        </>
-    )
+  return (
+    <>
+      <form className="formulario">{renderSecciones()}</form>
+      <Link to="/">
+        <button>Volver al menu principal</button>
+      </Link>
+    </>
+  );
 };
-

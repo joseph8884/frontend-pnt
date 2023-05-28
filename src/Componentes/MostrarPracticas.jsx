@@ -1,26 +1,40 @@
 import { Link } from "react-router-dom";
-export const MostrarPracticas = ({
-  buscar,
-  setBuscar,
-  FiltroListaPracticas,
-}) => {
+import { getPracticas } from "../Peticiones/getPracticas";
+import { useEffect, useState } from "react";
+import { deletePracticas } from "../Peticiones/deletePracticas";
+export const MostrarPracticas = () => {
+  const [buscar,setBuscar]=useState("");
+  const [practicas,setPracticas]=useState([]);
+  const cargarPracticas=async()=>{
+    const datos=await getPracticas();
+    setPracticas(datos)
+  }
+  useEffect(()=>{
+    cargarPracticas()
+  },[])
+
+  const FiltroListaPracticas= practicas.filter((practica)=> practica.fechaRealizacionTarea.toLowerCase().includes(buscar.toLowerCase()));
   const Buscador = () => {
     return (
-      <div className="Busqueda">
-        <label htmlFor="id">BUSCAR POR FECHA PRÁCTICA</label>
+      <div className="input-group mb-3">
+        <label htmlFor="id"></label>
         <input
           type="date"
           className="form-control"
           id="id"
+          placeholder="Buscar por fecha"
           value={buscar}
           onChange={(event) => setBuscar(event.target.value)}
         />
+        <button className="btn btn-outline-secondary" onClick={()=>setBuscar("")}>Limpiar</button>
       </div>
     );
   };
+
   return (
     <>
       {Buscador()}
+
       <br />
       <table className="table table-striped">
         <thead>
@@ -34,36 +48,38 @@ export const MostrarPracticas = ({
         </thead>
         <tbody>
           {console.log(FiltroListaPracticas)}
-          {FiltroListaPracticas.map((Practicas, index) => (
+          {FiltroListaPracticas.map((Practica, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>
-                <b>Nombre: </b>  {Practicas.nombreEmpresa}
+                <b>Nombre: </b>  {Practica.nombreEmpresa}
                 <br />
-                <b>Correo: </b> {Practicas.correoElectronicoEmpresa}
+                <b>Correo: </b> {Practica.emailEmpresa}
                 <br />
-                <b>Teléfono:</b> {Practicas.numeroTelefonicoEmpresa}
+                <b>Teléfono:</b> {Practica.numeroTelefonoEmpresa}
                 <br />
-                <b>Dirección:</b> {Practicas.direccionEmpresa}
+                <b>Dirección:</b> {Practica.direccionEmpresa}
               </td>
               <td>
-                <b>Nombre:</b> {Practicas.nombreCompletoSupervisor}
+                <b>Nombre:</b> {Practica.nombreCompletoSupervisor}
                 <br />
-                <b>Teléfono:</b> {Practicas.telefonoSupervisor}
+                <b>Teléfono:</b> {Practica.telefonoSupervisor}
                 <br />
-                <b>Cargo:</b> {Practicas.cargoSupervisor}
+                <b>Cargo:</b> {Practica.cargoSupervisor}
               </td>
               <td>
-                <b>Descripción:</b> {Practicas.descripcionTarea}
+                <b>Descripción:</b> {Practica.descripcionTarea}
                 <br />
-                <b>Fecha:</b> {Practicas.fechaRealizacionTarea}
+                <b>Fecha:</b> {Practica.fechaRealizacionTarea}
                 <br />
-                <b>Importancia:</b> {Practicas.importanciaTarea}
+                <b>Importancia:</b> {Practica.importanciaTarea}
                 <br />
-                <b>Horas:</b> {Practicas.horasDedicadaTarea}
+                <b>Horas:</b> {Practica.horasDedicadaTarea}
               </td>
               <td>
-                <button style={{ backgroundColor: "red" }} className="Boton">
+                <button style={{ backgroundColor: "red" }} className="Boton" onClick={()=>{
+                  deletePracticas(Practica)
+                   console.log(Practica)}}>
                   X
                 </button>
               </td>
