@@ -13,19 +13,20 @@ export const MostrarPracticas = () => {
     cargarPracticas()
   },[])
 
-  const FiltroListaPracticas= practicas.filter((practica)=> 
-      practica.fechaRealizacionTarea.toLowerCase().includes(buscar.toLowerCase()));
+  const FiltroListaPracticas= practicas.filter((practica)=> practica.fechaRealizacionTarea.toLowerCase().includes(buscar.toLowerCase()));
   const Buscador = () => {
     return (
-      <div className="Busqueda">
-        <label htmlFor="id">BUSCAR POR FECHA PRÁCTICA</label>
+      <div className="input-group mb-3">
+        <label htmlFor="id"></label>
         <input
           type="date"
           className="form-control"
           id="id"
+          placeholder="Buscar por fecha"
           value={buscar}
           onChange={(event) => setBuscar(event.target.value)}
         />
+        <button className="btn btn-outline-secondary" onClick={()=>setBuscar("")}>Limpiar</button>
       </div>
     );
   };
@@ -33,6 +34,7 @@ export const MostrarPracticas = () => {
   return (
     <>
       {Buscador()}
+
       <br />
       <table className="table table-striped">
         <thead>
@@ -77,7 +79,7 @@ export const MostrarPracticas = () => {
               <td>
                 <button style={{ backgroundColor: "red" }} className="Boton" onClick={()=>{
                   delatePracticas(Practica)
-                   console.log(Practica)}}>
+                  console.log(Practica)}}>
                   X
                 </button>
               </td>
