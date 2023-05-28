@@ -1,8 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom'
-import { useState} from "react"
-export const FormularioPracticas=({setPracticas})=>{
-
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+export const FormularioPracticas = ({ setPracticas }) => {
   //useState para Empresa
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [sitioWebEmpresa, setSitioWebEmpresa] = useState("");
@@ -21,63 +20,61 @@ export const FormularioPracticas=({setPracticas})=>{
   const [fechaRealizacionTarea, setFechaRealizacionTarea] = useState("");
   const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("1hr");
 
-
   const navigate = useNavigate();
   const guardarPractica = (event) => {
     event.preventDefault();
     const form = event.target.form;
     const isValid = form.checkValidity();
-  
+
     if (!isValid) {
       form.reportValidity();
     } else {
-      let empresa={
+      let empresa = {
         nombreEmpresa: nombreEmpresa,
         sitioWebEmpresa: sitioWebEmpresa,
         direccionEmpresa: direccionEmpresa,
         numeroTelefonoEmpresa: numeroTelefonicoEmpresa,
         emailEmpresa: correoElectronicoEmpresa,
-      }
-      let supervisor={
+      };
+      let supervisor = {
         nombreCompletoSupervisor: nombreCompletoSupervisor,
         cargoSupervisor: cargoSupervisor,
         telefonoSupervisor: telefonoSupervisor,
-      }
-      let tarea={
+      };
+      let tarea = {
         descripcionTarea: descripcionTarea,
         importanciaTarea: importanciaTarea,
         fechaRealizacionTarea: fechaRealizacionTarea,
         horasDedicadaTarea: horasDedicadaTarea,
-      }
+      };
       let practica = {
         empresa,
         supervisor,
-        tarea
+        tarea,
       };
-      console.log(practica)
+      console.log(practica);
       setPracticas(practica);
-      navigate('/');
+      navigate("/");
     }
   };
   const [seccion, setSeccion] = useState(1);
-    const avanzarSeccion = (event) => {
-        event.preventDefault();
-      
-        const form = event.target.form;
-        const isValid = form.checkValidity();
-      
-        if (!isValid) {
-          form.reportValidity();
-        } else {
-          setSeccion((prevSeccion) => prevSeccion + 1);
-        }
-      };
-      const retrocederSeccion = (event) => {
-        event.preventDefault();
-        setSeccion((prevSeccion) => prevSeccion - 1);
-      };
-      
-  
+  const avanzarSeccion = (event) => {
+    event.preventDefault();
+
+    const form = event.target.form;
+    const isValid = form.checkValidity();
+
+    if (!isValid) {
+      form.reportValidity();
+    } else {
+      setSeccion((prevSeccion) => prevSeccion + 1);
+    }
+  };
+  const retrocederSeccion = (event) => {
+    event.preventDefault();
+    setSeccion((prevSeccion) => prevSeccion - 1);
+  };
+
   const renderSecciones = () => {
     switch (seccion) {
       case 1:
@@ -167,119 +164,140 @@ export const FormularioPracticas=({setPracticas})=>{
         return (
           <div className="seccion">
             <h2>Información del Supervisor</h2>
-            {/* Campos para la información del supervisor */
-            <div className="campo">
-            <label htmlFor="nombreCompletoSupervisor">Nombre del supervisor:</label>
-            <input
-              type="text"
-              id="nombreCompletoSupervisor"
-              value={nombreCompletoSupervisor}
-              onChange={(e) => setNombreCompletoSupervisor(e.target.value)}
-              required
-            />
-          </div>
+            {
+              /* Campos para la información del supervisor */
+              <div className="campo">
+                <label htmlFor="nombreCompletoSupervisor">
+                  Nombre del supervisor:
+                </label>
+                <input
+                  type="text"
+                  id="nombreCompletoSupervisor"
+                  value={nombreCompletoSupervisor}
+                  onChange={(e) => setNombreCompletoSupervisor(e.target.value)}
+                  required
+                />
+              </div>
             }
             {
               <div className="campo">
-              <label htmlFor="cargoSupervisor">Cargo del supervisor:</label>
-              <input
-                type="text"
-                id="cargoSupervisor"
-                value={cargoSupervisor}
-                onChange={(e) => setcargoSupervisor(e.target.value)}
-                required
-              />
-            </div>
+                <label htmlFor="cargoSupervisor">Cargo del supervisor:</label>
+                <input
+                  type="text"
+                  id="cargoSupervisor"
+                  value={cargoSupervisor}
+                  onChange={(e) => setcargoSupervisor(e.target.value)}
+                  required
+                />
+              </div>
             }
             {
-               <div className="campo">
-               <label htmlFor="telefonoSupervisor">Telefono del supervisor:</label>
-               <input
-                 type="tel"
-                 id="telefonoSupervisor"
-                 value={telefonoSupervisor}
-                 onChange={(e) => setTelefonoSupervisor(e.target.value)}
-                 placeholder="1234567890, Numero telefonico del supervisor "
+              <div className="campo">
+                <label htmlFor="telefonoSupervisor">
+                  Telefono del supervisor:
+                </label>
+                <input
+                  type="tel"
+                  id="telefonoSupervisor"
+                  value={telefonoSupervisor}
+                  onChange={(e) => setTelefonoSupervisor(e.target.value)}
+                  placeholder="1234567890, Numero telefonico del supervisor "
                   pattern="[0-9]{3}[0-9]{7}"
                   max={11}
                   maxLength={11}
                   required
-               />
-             </div>
+                />
+              </div>
             }
-            <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
-            <button  onClick={avanzarSeccion}>Siguiente</button>
-            
+            <button className="retrocederboton" onClick={retrocederSeccion}>
+              Atrás
+            </button>
+            <button onClick={avanzarSeccion}>Siguiente</button>
           </div>
         );
       case 3:
         return (
           <div className="seccion">
             <h2>Información de la Tarea</h2>
-            {/* Campos para la información de la tarea */
-             <div className="campo">
-             <label htmlFor="descripcionTarea">Describa brevemente la tarea:</label>
-             <input
-               type="text"
-               id="descripcionTarea"
-               value={descripcionTarea}
-               onChange={(e) => setDescripcionTarea(e.target.value)}
-               required
-             />
+            {
+              /* Campos para la información de la tarea */
+              <div className="campo">
+                <label htmlFor="descripcionTarea">
+                  Describa brevemente la tarea:
+                </label>
+                <input
+                  type="text"
+                  id="descripcionTarea"
+                  value={descripcionTarea}
+                  onChange={(e) => setDescripcionTarea(e.target.value)}
+                  required
+                />
               </div>
             }
             {
               <div className="campo">
-              <label htmlFor="importanciaTarea">Importancia de la tarea </label>
-              <select
-                name="importanciaTarea"
-                className="form-control"
-                id="importanciaTarea"
-                value={importanciaTarea}
-                onChange={(event) => setImportanciaTarea(event.target.value)}
-                required
-              >
-                <option>Baja</option>
-                <option>Media</option>
-                <option>Alta</option>
-              </select>
+                <label htmlFor="importanciaTarea">
+                  Importancia de la tarea{" "}
+                </label>
+                <select
+                  name="importanciaTarea"
+                  className="form-control"
+                  id="importanciaTarea"
+                  value={importanciaTarea}
+                  onChange={(event) => setImportanciaTarea(event.target.value)}
+                  required
+                >
+                  <option value="BAJA">Baja</option>
+                  <option value="MEDIA">Media</option>
+                  <option value="ALTA">Alta</option>
+                </select>
               </div>
             }
             {
-            <div className="campo">
-                <label htmlFor="fechaRealizacionTarea"
-                  >Fecha de realizacion de la tarea:
-                  <input type="date" name="fechaRealizacionTarea" min="2017-04-01" max="2023-12-31" 
-                  id="fechaRealizacionTarea"
-                  value={fechaRealizacionTarea}
-                  onChange={(e) => setFechaRealizacionTarea(e.target.value)}   
-                  required
+              <div className="campo">
+                <label htmlFor="fechaRealizacionTarea">
+                  Fecha de realizacion de la tarea:
+                  <input
+                    type="date"
+                    name="fechaRealizacionTarea"
+                    min="2017-04-01"
+                    max="2023-12-31"
+                    id="fechaRealizacionTarea"
+                    value={fechaRealizacionTarea}
+                    onChange={(e) => setFechaRealizacionTarea(e.target.value)}
+                    required
                   />
                 </label>
-            </div>
+              </div>
             }
             {
               <div className="campo">
-              <label htmlFor="horasDedicadaTarea">Horas dedicadas a la tarea </label>
-              <select
-                name="horasDedicadaTarea"
-                className="form-control"
-                id="horasDedicadaTarea"
-                value={horasDedicadaTarea}
-                onChange={(event) => sethorasDedicadaTarea(event.target.value)}
-                required
-              >
-                <option>1hr</option>
-                <option>2hr</option>
-                <option>3hr</option>
-                <option>4hr</option>
-                <option>5hr</option>
-                <option>6hr</option>
-                <option>+6hr</option>
-              </select>
+                <label htmlFor="horasDedicadaTarea">
+                  Horas dedicadas a la tarea{" "}
+                </label>
+                <select
+                  name="horasDedicadaTarea"
+                  className="form-control"
+                  id="horasDedicadaTarea"
+                  value={horasDedicadaTarea}
+                  onChange={(event) =>
+                    sethorasDedicadaTarea(event.target.value)
+                  }
+                  required
+                >
+                  <option>1hr</option>
+                  <option>2hr</option>
+                  <option>3hr</option>
+                  <option>4hr</option>
+                  <option>5hr</option>
+                  <option>6hr</option>
+                  <option>+6hr</option>
+                </select>
               </div>
             }
-            <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
+            <button className="retrocederboton" onClick={retrocederSeccion}>
+              Atrás
+            </button>
             <button onClick={guardarPractica}>Guardar</button>
           </div>
         );
@@ -288,11 +306,12 @@ export const FormularioPracticas=({setPracticas})=>{
     }
   };
 
-return (
-        <>
-     <form className="formulario">{renderSecciones()}</form>
-        <Link to="/"><button>Volver al menu principal</button></Link>
-        </>
-    )
+  return (
+    <>
+      <form className="formulario">{renderSecciones()}</form>
+      <Link to="/">
+        <button>Volver al menu principal</button>
+      </Link>
+    </>
+  );
 };
-
