@@ -12,14 +12,14 @@ export const FormularioPracticas=({setPracticas})=>{
 
   //useState para Supervisor
   const [nombreCompletoSupervisor, setNombreCompletoSupervisor] = useState("");
-  const [cargoSupervisor, setcargoSupervisor] = useState("");
+  const [cargoSupervisor, setCargoSupervisor] = useState("");
   const [telefonoSupervisor, setTelefonoSupervisor] = useState("");
 
   //useState Tareas
   const [descripcionTarea, setDescripcionTarea] = useState("");
   const [importanciaTarea, setImportanciaTarea] = useState("Baja");
   const [fechaRealizacionTarea, setFechaRealizacionTarea] = useState("");
-  const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("1hr");
+  const [horasDedicadaTarea, setHorasDedicadaTarea] = useState("1hr");
 
 
   const navigate = useNavigate();
@@ -187,7 +187,7 @@ export const FormularioPracticas=({setPracticas})=>{
                 type="text"
                 id="cargoSupervisor"
                 value={cargoSupervisor}
-                onChange={(e) => setcargoSupervisor(e.target.value)}
+                onChange={(e) => setCargoSupervisor(e.target.value)}
                 placeholder="Cargo del supervisor"
                 minLength={3}
                 required
@@ -272,7 +272,7 @@ export const FormularioPracticas=({setPracticas})=>{
                 className="form-control"
                 id="horasDedicadaTarea"
                 value={horasDedicadaTarea}
-                onChange={(event) => sethorasDedicadaTarea(event.target.value)}
+                onChange={(event) => setHorasDedicadaTarea(event.target.value)}
                 required
               >
                 <option>1hr</option>
