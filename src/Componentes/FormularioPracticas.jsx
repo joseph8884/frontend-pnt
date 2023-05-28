@@ -1,7 +1,7 @@
-
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { useState } from "react"
-export const FormularioPracticas=({practicas, setPracticas})=>{
+import { useState} from "react"
+export const FormularioPracticas=({setPracticas})=>{
 
   //useState para Empresa
   const [nombreEmpresa, setNombreEmpresa] = useState("");
@@ -17,28 +17,39 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
 
   //useState Tareas
   const [descripcionTarea, setDescripcionTarea] = useState("");
-  const [importanciaTarea, setImportanciaTarea] = useState("");
+  const [importanciaTarea, setImportanciaTarea] = useState("Baja");
   const [fechaRealizacionTarea, setFechaRealizacionTarea] = useState("");
-  const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("");
+  const [horasDedicadaTarea, sethorasDedicadaTarea] = useState("1hr");
 
+
+  const navigate = useNavigate();
   const guardarPractica = (event) => {
-    let practica = {
-      nombreEmpresa: nombreEmpresa,
-      sitioWebEmpresa: sitioWebEmpresa,
-      direccionEmpresa: direccionEmpresa,
-      numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
-      correoElectronicoEmpresa: correoElectronicoEmpresa,
-
-      nombreCompletoSupervisor: nombreCompletoSupervisor,
-      cargoSupervisor: cargoSupervisor,
-      telefonoSupervisor: telefonoSupervisor,
-
-      descripcionTarea: descripcionTarea,
-      importanciaTarea: importanciaTarea,
-      fechaRealizacionTarea: fechaRealizacionTarea,
-      horasDedicadaTarea: horasDedicadaTarea,
-    };
-    setPracticas(practica);
+    event.preventDefault();
+    const form = event.target.form;
+    const isValid = form.checkValidity();
+  
+    if (!isValid) {
+      form.reportValidity();
+    } else {
+      let practica = {
+        nombreEmpresa: nombreEmpresa,
+        sitioWebEmpresa: sitioWebEmpresa,
+        direccionEmpresa: direccionEmpresa,
+        numeroTelefonicoEmpresa: numeroTelefonicoEmpresa,
+        correoElectronicoEmpresa: correoElectronicoEmpresa,
+  
+        nombreCompletoSupervisor: nombreCompletoSupervisor,
+        cargoSupervisor: cargoSupervisor,
+        telefonoSupervisor: telefonoSupervisor,
+  
+        descripcionTarea: descripcionTarea,
+        importanciaTarea: importanciaTarea,
+        fechaRealizacionTarea: fechaRealizacionTarea,
+        horasDedicadaTarea: horasDedicadaTarea,
+      };
+      setPracticas(practica);
+      navigate('/');
+    }
   };
   const [seccion, setSeccion] = useState(1);
     const avanzarSeccion = (event) => {
@@ -261,13 +272,14 @@ export const FormularioPracticas=({practicas, setPracticas})=>{
               </div>
             }
             <button className="retrocederboton" onClick={retrocederSeccion}>Atrás</button>
-            <Link to="/"  ><button onClick={guardarPractica}>Guardar</button> </Link>
+            <button onClick={guardarPractica}>Guardar</button>
           </div>
         );
       default:
         return null;
     }
   };
+
 return (
         <>
      <form className="formulario">{renderSecciones()}</form>
