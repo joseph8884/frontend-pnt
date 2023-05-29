@@ -51,7 +51,7 @@ export const MostrarPracticas = () => {
           {FiltroListaPracticas.map((Practica, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>
+              <td className="tdcolor">
                 <b>Nombre: </b>  {Practica.empresa.nombreEmpresa}
                 <br />
                 <b>Correo: </b> {Practica.empresa.emailEmpresa}
@@ -60,14 +60,14 @@ export const MostrarPracticas = () => {
                 <br />
                 <b>Dirección:</b> {Practica.empresa.direccionEmpresa}
               </td>
-              <td>
+              <td className="tdcolor">
                 <b>Nombre:</b> {Practica.supervisor.nombreCompletoSupervisor}
                 <br />
                 <b>Teléfono:</b> {Practica.supervisor.telefonoSupervisor}
                 <br />
                 <b>Cargo:</b> {Practica.supervisor.cargoSupervisor}
               </td>
-              <td>
+              <td className="tdcolor">
                 <b>Descripción:</b> {Practica.tarea.descripcionTarea}
                 <br />
                 <b>Fecha:</b> {Practica.tarea.fechaRealizacionTarea}

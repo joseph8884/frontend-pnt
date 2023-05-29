@@ -89,6 +89,12 @@ input:valid:focus {
    color: #fff9fa;
    margin-left: 5%;
  }
+ .table.table-striped{
+  color: #ffffff;
+  background-color: #cccccc80;
+ }
 
-
+b{
+  color: whitesmoke;
+}
 
