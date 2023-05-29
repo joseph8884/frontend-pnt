@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Proyecto de Registro de Prácticas 📖✍
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Este es un proyecto creado por Oscar Vergara, José Guzmán y Santiago Santafé para brindar una solución que ayude a las personas a llevar un registro de sus prácticas realizadas. El   objetivo principal es facilitar la organización y documentación de las prácticas, permitiendo a los usuarios almacenar información relevante sobre la empresa, el supervisor y las     tareas realizadas durante cada práctica.
 
-## Available Scripts
+## Integrantes del Grupo 😎
+- Oscar Vergara
+- José Guzmán
+- Santiago Santafé
 
-In the project directory, you can run:
+### Descripción del Proyecto 🛠
+El proyecto tiene como finalidad proporcionar una herramienta sencilla y eficiente para el registro de prácticas. Algunas de las características clave son:
+- __Registro de Empresa 🏭:__ 
+  Los usuarios podrán ingresar información detallada sobre la empresa donde realizaron su práctica, como: 
+  - Nombre.
+  - Dirección.
+  - Correo. 
+  - Contacto.
+- __Registro de Supervisor👮‍:__ 
+  Se permitirá añadir información acerca del supervisor de la práctica, incluyendo: 
+  - Nombre. 
+  - Cargo. 
+  - Número de contacto.
+- __Detalle de Tareas 📚:__ 
+  Los usuarios podrán añadir los detalles de las tareas realizadas durante la práctica, como: 
+  - Descripción. 
+  - Fechas. 
+  - Importancia.
+  - Horas dedicadas a la tarea.
+  
+ ## Tecnologías usadas 🛸
+ 1. [REACT🔗](https://es.react.dev)
+ 2. [JAVA🔗](https://g.co/kgs/sNY3CU)
+ 3. [HTML🔗](https://developer.mozilla.org/es/docs/Web/HTML)
+ 
+ ## INSTRUCCIONES DE USO 🧩
+ - FRONT: 
+  - Dirigete a la terminal de tu editor e installa npm. Para esto utilizar la terminal y escribe los siguientes comandos "npm install" y luego "npm start". estos haran que el proyecto de inicio en tu local host 3000 donde posteriormente podrás usarlo en tu navegador de preferencia.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## CONTRAPARTE EL PROYECTO (BACK-END)
+-[CLICK AQUÍ PARA VISITAR REPOSITORIO DE BACK-END](https://github.com/SantiagoSantafe/BackEndParcial.git)
+    
+  
