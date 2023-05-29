@@ -89,6 +89,23 @@ input:valid:focus {
    color: #fff9fa;
    margin-left: 5%;
  }
+ .table.table-striped{
+  color: #ffffff;
+  background-color: #cccccc80;
+ }
 
-
-
+b{
+  color: whitesmoke;
+}
+.colorvars{
+  color: black;
+  font-weight: bold;
+}
+.menu{
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/707/220/899/gradient-blue-pink-abstract-art-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+ background-size: cover;
+}
+h1{
+  color: white;
+}
