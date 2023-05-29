@@ -52,29 +52,21 @@ export const MostrarPracticas = () => {
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td className="tdcolor">
-                <b>Nombre: </b>  {Practica.empresa.nombreEmpresa}
-                <br />
-                <b>Correo: </b> {Practica.empresa.emailEmpresa}
-                <br />
-                <b>Teléfono:</b> {Practica.empresa.numeroTelefonoEmpresa}
-                <br />
-                <b>Dirección:</b> {Practica.empresa.direccionEmpresa}
+                <b>Nombre: </b>  <div className="colorvars">{Practica.empresa.nombreEmpresa}</div>
+                <b>Correo: </b> <div className="colorvars">{Practica.empresa.emailEmpresa}</div>
+                <b>Teléfono:</b> <div className="colorvars">{Practica.empresa.numeroTelefonoEmpresa}</div>
+                <b>Dirección:</b> <div className="colorvars">{Practica.empresa.direccionEmpresa}</div>
               </td>
               <td className="tdcolor">
-                <b>Nombre:</b> {Practica.supervisor.nombreCompletoSupervisor}
-                <br />
-                <b>Teléfono:</b> {Practica.supervisor.telefonoSupervisor}
-                <br />
-                <b>Cargo:</b> {Practica.supervisor.cargoSupervisor}
+                <b>Nombre:</b> <div className="colorvars">{Practica.supervisor.nombreCompletoSupervisor}</div>
+                <b>Teléfono:</b> <div className="colorvars">{Practica.supervisor.telefonoSupervisor}</div>
+                <b>Cargo:</b> <div className="colorvars">{Practica.supervisor.cargoSupervisor}</div>
               </td>
               <td className="tdcolor">
-                <b>Descripción:</b> {Practica.tarea.descripcionTarea}
-                <br />
-                <b>Fecha:</b> {Practica.tarea.fechaRealizacionTarea}
-                <br />
-                <b>Importancia:</b> {Practica.tarea.importanciaTarea}
-                <br />
-                <b>Horas:</b> {Practica.tarea.horasDedicadaTarea}
+                <b>Descripción:</b> <div className="colorvars">{Practica.tarea.descripcionTarea}</div>
+                <b>Fecha:</b> <div className="colorvars">{Practica.tarea.fechaRealizacionTarea}</div>
+                <b>Importancia:</b> <div className="colorvars">{Practica.tarea.importanciaTarea}</div> 
+                <b>Horas:</b> <div className="colorvars">{Practica.tarea.horasDedicadaTarea}</div>
               </td>
               <td>
                 <button style={{ backgroundColor: "red" }} className="Boton" onClick={()=>{
