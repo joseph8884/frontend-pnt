@@ -5,10 +5,14 @@ import { deletePracticas } from "../Peticiones/deletePracticas";
 export const MostrarPracticas = () => {
   const [buscar,setBuscar]=useState("");
   const [practicas,setPracticas]=useState([]);
-  const cargarPracticas=async()=>{
-    const datos=await getPracticas();
-    setPracticas(datos)
-  }
+  const cargarPracticas = async () => {
+    try {
+      const datos = await getPracticas();
+      setPracticas(datos);
+    } catch (error) {
+      alert("El servidor no se encuentra en línea. Por favor, intenta más tarde.");
+    }
+  };
   useEffect(()=>{
     cargarPracticas()
   },[])
