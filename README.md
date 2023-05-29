@@ -29,7 +29,7 @@ El proyecto tiene como finalidad proporcionar una herramienta sencilla y eficien
   
  ## Tecnologías usadas 🛸
  1. [REACT🔗](https://es.react.dev)
- 2. [JAVA🔗](https://g.co/kgs/sNY3CU)
+ 2. [JAVASCRIPT🔗](https://developer.mozilla.org/es/docs/Web/JavaScript)
  3. [HTML🔗](https://developer.mozilla.org/es/docs/Web/HTML)
  
  ## INSTRUCCIONES DE USO 🧩
