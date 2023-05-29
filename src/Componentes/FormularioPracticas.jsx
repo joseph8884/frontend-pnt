@@ -1,5 +1,5 @@
 
-import { json, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { useState} from "react"
 export const FormularioPracticas=({setPracticas})=>{
@@ -112,7 +112,7 @@ export const FormularioPracticas=({setPracticas})=>{
                   id="sitioWebEmpresa"
                   value={sitioWebEmpresa}
                   onChange={(e) => setSitioWebEmpresa(e.target.value)}
-                  placeholder="Sitio web de la empresa"
+                  placeholder="Sitio web de la empresa 'URL'"
                   minLength={3}
                   required
                 />
